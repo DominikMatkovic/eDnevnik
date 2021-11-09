@@ -1,0 +1,35 @@
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% bootstrap_messages %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Student login</title>
+</head>
+<body>
+
+<div class="container mt-3">
+  <h2>Student login</h2>
+  <form action="" method="POST">
+  {% csrf_token %}
+    <div class="mb-3 mt-3">
+      <label for="OIB">OIB:</label>
+      <input type="text" placeholder="Write your OIB here." class="form-control" maxlength="11" id="OIB" name="OIB"/>
+    </div>
+    <br>
+    <button type="submit" class="btn btn-outline-secondary">Log in</button>
+    <a href="../" class="btn btn-outline-secondary" tabindex="-1" role="button" aria-disabled="true">Go back</a>
+
+  </form>
+</div>
+
+{% if alert == 1%}
+<script>
+  alert("A person with this OIB already exists! Try again.");
+</script>
+{% endif %}
+
+</body>
+</html>
