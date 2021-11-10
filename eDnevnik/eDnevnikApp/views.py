@@ -11,9 +11,13 @@ def index(request):
     return render(request, 'eDnevnikApp/index.html')
 
 def studentLogin(request):
+    
     if request.method == 'POST':
-
-        return redirect('studentPage/'+ request.POST.get('OIB'))
+        if Student.objects.filter(studentoib = request.POST.get('OIB')).exists():
+            return redirect('studentPage/'+ request.POST.get('OIB'))
+        else:
+            context = { 'alert' : 1}
+            return render(request, 'eDnevnikApp/studentLogin.html',context) 
     return render(request, 'eDnevnikApp/studentLogin.html')
 
 def professorLogin(request):
@@ -25,8 +29,11 @@ def professorLogin(request):
 
 
 def studentPage(request,studentOIB):
-    #studenti  = Student.objects.all()
-    context = {'studentOIB': studentOIB}
+    
+    studentByOib = Student.objects.get(pk=studentOIB)
+    studentsSubject = Studentsubjecttable.objects.filter(fkstudentoib=studentOIB)
+
+    context = {'studentByOib': studentByOib, 'studentsSubject': studentsSubject}
     return render(request, 'eDnevnikApp/studentPage.html',context)
 
 def professorPage(request):

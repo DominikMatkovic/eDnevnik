@@ -1,5 +1,23 @@
 
 <h1>Your page.</h1>
 
-{{studentOIB}} 
-<a href="">View grades</a>
+<br>
+OIB: {{studentByOib.studentoib}}
+<br>
+Name: {{studentByOib.name}}
+<br>
+Last Name: {{studentByOib.lastname}}
+<br>
+Email: {{studentByOib.email}}
+<br>
+Home Adress: {{studentByOib.homeadress}}
+<br>
+Attends: {{studentByOib.attendsfkschoolname}}
+<br>
+Birth Date: {{studentByOib.birthdate}}
+<br>
+Subjects: 
+{%for ss in studentsSubject%}
+<br>
+-{{ss.fksubjectid.name}} -> Grade is: {{ss.grade}}
+{% endfor %}

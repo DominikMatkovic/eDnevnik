@@ -164,7 +164,7 @@ class Student(models.Model):
 class Studentsubjecttable(models.Model):
     fksubjectid = models.ForeignKey('Subject', models.DO_NOTHING, db_column='FKSubjectId')  # Field name made lowercase.
     fkstudentoib = models.ForeignKey(Student, models.DO_NOTHING, db_column='FKStudentOIB')  # Field name made lowercase.
-
+    grade = models.FloatField()
     class Meta:
         
         db_table = 'studentsubjecttable'

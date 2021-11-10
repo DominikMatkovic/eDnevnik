@@ -1,6 +1,30 @@
-<h1>eDnevnik</h1>
-<h2>Log in as student or professor</h2>
-<a href="{% url 'studentLogin' %}"  >student</a>
-<a href="{% url 'professorLogin' %}"  >student</a>
 
 
+
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% bootstrap_messages %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>eDnevnik</title>
+</head>
+<body>
+<div class="bg-image" 
+     style="background-size: cover;
+            background-image: url('https://i.ibb.co/bdyT3bb/school.jpg');
+            height: 100vh">
+
+
+<div class="position-absolute top-50 start-50 translate-middle">
+    <div class="container p-5 my-5 bg-dark border">
+        <h1 class="text-primary text-center">eDnevnik</h1>
+        <a href="{% url 'professorLogin' %}" class="btn btn-primary btn-sm " tabindex="-1" role="button" aria-disabled="true">Pristupi kao professor</a>
+        <a href="{% url 'studentLogin' %}" class="btn btn-primary btn-sm " tabindex="-1" role="button" aria-disabled="true">Pristupi kao student</a>
+    </div>
+</div>
+</div>
+</body>
+</html>
