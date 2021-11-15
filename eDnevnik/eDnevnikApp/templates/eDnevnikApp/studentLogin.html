@@ -6,28 +6,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Student login</title>
+  <title>Prijava kao student</title>
 </head>
 <body>
 
-<div class="container mt-3">
-  <h2>Student login</h2>
-  <form action="" method="POST">
-  {% csrf_token %}
-    <div class="mb-3 mt-3">
-      <label for="OIB">OIB:</label>
-      <input type="text" placeholder="Write your OIB here." class="form-control" maxlength="11" id="OIB" name="OIB"/>
+<div class="bg-image" style="background-size: cover; background-image: url('https://i.ibb.co/bdyT3bb/school.jpg'); height: 100vh">
+  <div class="position-absolute top-50 start-50 translate-middle">
+    <div class="container p-5 my-5 bg-dark border">
+      <h2 class="text-primary">Prijava kao student</h2>
+      <form action="" method="POST">
+        {% csrf_token %}
+        <div class="mb-3 mt-3">
+          <label for="OIB">OIB:</label>
+          <input type="text" placeholder="Napišite OIB ovdje." class="form-control" maxlength="11" id="OIB" name="OIB"/>
+        </div>
+        <br>
+        <div class="btn-group" style="width:100%">
+          <button type="submit" class="btn btn-primary">Prijava</button>
+          <a href="../" class="btn btn-primary" tabindex="-1" role="button" aria-disabled="true">Nazad</a>
+        </div>
+      </form>
     </div>
-    <br>
-    <button type="submit" class="btn btn-outline-secondary">Log in</button>
-    <a href="../" class="btn btn-outline-secondary" tabindex="-1" role="button" aria-disabled="true">Go back</a>
-
-  </form>
+  </div>
 </div>
 
 {% if alert == 1%}
 <script>
-  alert("Ovaj OIB ne postoji. Probajte ponovno.");
+  alert("Ovaj OIB nije od učenika ili ne postoji.");
 </script>
 {% endif %}
 

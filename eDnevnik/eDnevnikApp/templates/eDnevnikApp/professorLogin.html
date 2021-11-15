@@ -1,1 +1,27 @@
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% bootstrap_messages %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Prijava kao student</title>
+</head>
+<body>
+
+
+
+
 <a href="{% url 'professorPage' %}">Log in</a>
+
+
+
+{% if alert == 1%}
+<script>
+  alert("Ovaj OIB nije od profesora ili ne postoji.");
+</script>
+{% endif %}
+
+</body>
+</html>

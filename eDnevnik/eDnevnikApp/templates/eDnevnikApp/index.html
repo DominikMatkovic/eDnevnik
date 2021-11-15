@@ -1,6 +1,4 @@
 
-
-
 {% load bootstrap5 %}
 {% bootstrap_css %}
 {% bootstrap_javascript %}
@@ -9,8 +7,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>eDnevnik</title>
+    <title>eDnevnik</title>
 </head>
+
 <body>
 <div class="bg-image" 
      style="background-size: cover;
@@ -18,13 +17,13 @@
             height: 100vh">
 
 
-<div class="position-absolute top-50 start-50 translate-middle">
-    <div class="container p-5 my-5 bg-dark border">
-        <h1 class="text-primary text-center">eDnevnik</h1>
-        <a href="{% url 'professorLogin' %}" class="btn btn-primary btn-sm " tabindex="-1" role="button" aria-disabled="true">Pristupi kao professor</a>
-        <a href="{% url 'studentLogin' %}" class="btn btn-primary btn-sm " tabindex="-1" role="button" aria-disabled="true">Pristupi kao student</a>
+    <div class="position-absolute top-50 start-50 translate-middle">
+        <div class="container p-5 my-5 bg-dark border">
+            <h1 class="text-primary text-center">eDnevnik</h1>
+            <a href="{% url 'professorLogin' %}" class="btn btn-primary btn-sm " tabindex="-1" role="button" aria-disabled="true">Pristupi kao professor</a>
+            <a href="{% url 'studentLogin' %}" class="btn btn-primary btn-sm " tabindex="-1" role="button" aria-disabled="true">Pristupi kao student</a>
+        </div>
     </div>
-</div>
 </div>
 </body>
 </html>

@@ -21,8 +21,13 @@ def studentLogin(request):
     return render(request, 'eDnevnikApp/studentLogin.html')
 
 def professorLogin(request):
-
     
+    if request.method == 'POST':
+        if Professor.objects.filter(studentoib = request.POST.get('OIB')).exists():
+            return redirect('professorPage/'+ request.POST.get('OIB'))
+        else:
+            context = { 'alert' : 1}
+            return render(request, 'eDnevnikApp/professorLogin.html',context) 
     
     return render(request, 'eDnevnikApp/professorLogin.html')
 

@@ -7,5 +7,5 @@ urlpatterns = [
     path('studentLogin', views.studentLogin, name='studentLogin'),
     path('professorLogin', views.professorLogin, name='professorLogin'),
     path('studentPage/<studentOIB>', views.studentPage, name='studentPage'),
-    path('professorPage', views.professorPage, name='professorPage'),
+    path('professorPage/<professorOIB>', views.professorPage, name='professorPage'),
 ]

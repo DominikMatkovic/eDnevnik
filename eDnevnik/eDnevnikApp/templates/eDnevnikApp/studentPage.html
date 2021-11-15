@@ -1,23 +1,74 @@
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% bootstrap_messages %}
 
-<h1>Your page.</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Tvoji podatci i ocjene.</title>
+</head>
+<body>
 
-<br>
-OIB: {{studentByOib.studentoib}}
-<br>
-Name: {{studentByOib.name}}
-<br>
-Last Name: {{studentByOib.lastname}}
-<br>
-Email: {{studentByOib.email}}
-<br>
-Home Adress: {{studentByOib.homeadress}}
-<br>
-Attends: {{studentByOib.attendsfkschoolname}}
-<br>
-Birth Date: {{studentByOib.birthdate}}
-<br>
-Subjects: 
-{%for ss in studentsSubject%}
-<br>
--{{ss.fksubjectid.name}} -> Grade is: {{ss.grade}}
-{% endfor %}
+<div class="container-fluid p-3 my-3 ">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Tvoji podatci</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>OIB</td>
+                <td>{{studentByOib.studentoib}}</td>
+            </tr>
+            <tr>
+                <td>Name</td>
+                <td>{{studentByOib.name}}</td>
+            </tr>
+            <tr>
+                <td>OIB</td>
+                <td>{{studentByOib.studentoib}}</td>
+            </tr>
+            <tr>
+                <td>Last Name</td>
+                <td>{{studentByOib.lastname}}</td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td>{{studentByOib.email}}</td>
+            </tr>
+            <tr>
+                <td>Home Adress</td>
+                <td>{{studentByOib.homeadress}}</td>
+            </tr>
+            <tr>
+                <td>Attends</td>
+                <td>{{studentByOib.attendsfkschoolname}}</td>
+            </tr>
+            <tr>
+                <td>Birth Date</td>
+                <td>{{studentByOib.birthdate}}</td>
+            </tr>
+            
+        </tbody>
+        <thead>
+            <tr>
+                <th scope="col">Predmeti</th>
+                <th scope="col">Ocjena</th>
+            </tr>
+            {%for ss in studentsSubject%}
+            <tr>
+                <td>{{ss.fksubjectid.name}}</td>
+                <td>{{ss.grade}}</td>
+            </tr>
+            {% endfor %}
+            
+        </thead>
+    </table>
+</div>
+
+
+</body>
+</html>
