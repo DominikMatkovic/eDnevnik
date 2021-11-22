@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'eDnevnikApp.apps.EdnevnikappConfig',
     'bootstrap5',
+    'rest_framework',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -78,10 +79,10 @@ WSGI_APPLICATION = 'eDnevnik.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'ednevnikdb',
-        'USER': 'root',
-        'PASSWORD': '',
-        'HOST': 'localhost',
+        'NAME': 'flask',
+        'USER': 'luka',
+        'PASSWORD': 'ab1234',
+        'HOST': '10.30.10.55',
         'PORT': '3306',
     }
 }

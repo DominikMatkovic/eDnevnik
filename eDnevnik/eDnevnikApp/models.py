@@ -138,7 +138,8 @@ class Professor(models.Model):
 
 
 class School(models.Model):
-    schoolname = models.CharField(db_column='schoolName', primary_key=True, max_length=45)  # Field name made lowercase.
+    schoolId = models.AutoField(db_column='schoolId', primary_key=True)  # Field name made lowercase.
+    schoolname = models.CharField(db_column='schoolName', max_length=45)  # Field name made lowercase.
     adress = models.CharField(max_length=45)
     website = models.CharField(max_length=45, blank=True, null=True)
 

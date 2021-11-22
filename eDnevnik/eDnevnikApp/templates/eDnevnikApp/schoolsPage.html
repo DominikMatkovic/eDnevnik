@@ -1,0 +1,51 @@
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% bootstrap_messages %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Tvoji podatci i ocjene.</title>
+</head>
+<body>
+
+<input type="hidden" id="id" name="id" value="{{rows.id}}">
+<label for="name">Name:</label>
+<input type="text" id="name" name="name" value="{{rows.name}}"><br><br>
+<label for="lastname">Description:</label>
+<input type="text" id="description" name="description" value="{{rows.description}}"><br><br>
+<input type="submit" value="Rename"><br><br>
+
+<div class="container-fluid p-3 my-3 ">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Tvoji podatci</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>schoolId</td>
+                <td>{{schoolById.schoolId}}</td>
+            </tr>
+            <tr>
+                <td>schoolName</td>
+                <td>{{schoolById.schoolname}}</td>
+            </tr>
+            <tr>
+                <td>adress</td>
+                <td>{{schoolById.adress}}</td>
+            </tr>
+            <tr>
+                <td>website</td>
+                <td>{{schoolById.website}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+</body>
+</html>
