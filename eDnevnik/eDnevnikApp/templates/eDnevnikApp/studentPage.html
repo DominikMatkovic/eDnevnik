@@ -28,10 +28,6 @@
                 <td>{{studentByOib.name}}</td>
             </tr>
             <tr>
-                <td>OIB</td>
-                <td>{{studentByOib.studentoib}}</td>
-            </tr>
-            <tr>
                 <td>Last Name</td>
                 <td>{{studentByOib.lastname}}</td>
             </tr>
@@ -45,7 +41,7 @@
             </tr>
             <tr>
                 <td>Attends</td>
-                <td>{{studentByOib.attendsfkschoolname}}</td>
+                <td>{{studentByOib.attendsfkid}}</td>
             </tr>
             <tr>
                 <td>Birth Date</td>
@@ -64,6 +60,7 @@
                 <td>{{ss.grade}}</td>
             </tr>
             {% endfor %}
+            
             
         </thead>
     </table>

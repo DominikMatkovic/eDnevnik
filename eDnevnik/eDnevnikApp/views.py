@@ -19,10 +19,10 @@ from eDnevnikApp.serializers import SchoolSerializer
 def index(request): 
 
 
-    url = "http://10.30.10.55:5000/schools"
-    response = urllib.request.urlopen(url)
-    data = json.loads(response.read())
-
+    #url = "http://10.30.10.55:5000/schools"
+    #response = urllib.request.urlopen(url)
+    #data = json.loads(response.read())
+    data = 1
     context = {'data':data}
 
     return render(request, 'eDnevnikApp/index.html',context)

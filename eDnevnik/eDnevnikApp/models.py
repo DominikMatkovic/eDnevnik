@@ -123,14 +123,14 @@ class DjangoSession(models.Model):
 
 
 class Professor(models.Model):
-    professoroib = models.CharField(db_column='professorOIB', primary_key=True, max_length=11)  # Field name made lowercase.
-    firstname = models.CharField(db_column='firstName', max_length=45)  # Field name made lowercase.
-    lastname = models.CharField(db_column='lastName', max_length=45)  # Field name made lowercase.
+    professoroib = models.CharField( primary_key=True, max_length=11)  # Field name made lowercase.
+    firstname = models.CharField(max_length=45)  # Field name made lowercase.
+    lastname = models.CharField(max_length=45)  # Field name made lowercase.
     email = models.CharField(max_length=45)
-    homeadress = models.CharField(db_column='homeAdress', max_length=45)  # Field name made lowercase.
-    phonenumber = models.CharField(db_column='phoneNumber', max_length=45)  # Field name made lowercase.
-    worksatfkschoolname = models.ForeignKey('School', models.DO_NOTHING, db_column='worksAtFKSchoolName', blank=True, null=True)  # Field name made lowercase.
-    birthdate = models.DateField(db_column='birthDate')  # Field name made lowercase.
+    homeadress = models.CharField(max_length=45)  # Field name made lowercase.
+    phonenumber = models.CharField(max_length=45)  # Field name made lowercase.
+    worksatfkschoolname = models.ForeignKey('School', models.DO_NOTHING, blank=True, null=True)  # Field name made lowercase.
+    birthdate = models.DateField()  # Field name made lowercase.
 
     class Meta:
         
@@ -138,8 +138,8 @@ class Professor(models.Model):
 
 
 class School(models.Model):
-    schoolId = models.AutoField(db_column='schoolId', primary_key=True)  # Field name made lowercase.
-    schoolname = models.CharField(db_column='schoolName', max_length=45)  # Field name made lowercase.
+    schoolId = models.AutoField(primary_key=True)  # Field name made lowercase.
+    schoolname = models.CharField( max_length=45)  # Field name made lowercase.
     adress = models.CharField(max_length=45)
     website = models.CharField(max_length=45, blank=True, null=True)
 
@@ -149,13 +149,13 @@ class School(models.Model):
 
 
 class Student(models.Model):
-    studentoib = models.CharField(db_column='studentOIB', primary_key=True, max_length=11)  # Field name made lowercase.
+    studentoib = models.CharField( primary_key=True, max_length=11)  # Field name made lowercase.
     name = models.CharField(max_length=45)
-    lastname = models.CharField(db_column='lastName', max_length=45)  # Field name made lowercase.
+    lastname = models.CharField(max_length=45)  # Field name made lowercase.
     email = models.CharField(max_length=45)
-    homeadress = models.CharField(db_column='homeAdress', max_length=45)  # Field name made lowercase.
-    attendsfkschoolname = models.ForeignKey(School, models.DO_NOTHING, db_column='attendsFKSchoolName', blank=True, null=True)  # Field name made lowercase.
-    birthdate = models.DateField(db_column='birthDate')  # Field name made lowercase.
+    homeadress = models.CharField( max_length=45)  # Field name made lowercase.
+    attendsfkschoolname = models.ForeignKey(School, models.DO_NOTHING, blank=True, null=True)  # Field name made lowercase.
+    birthdate = models.DateField()  # Field name made lowercase.
 
     class Meta:
         
@@ -163,8 +163,8 @@ class Student(models.Model):
 
 
 class Studentsubjecttable(models.Model):
-    fksubjectid = models.ForeignKey('Subject', models.DO_NOTHING, db_column='FKSubjectId')  # Field name made lowercase.
-    fkstudentoib = models.ForeignKey(Student, models.DO_NOTHING, db_column='FKStudentOIB')  # Field name made lowercase.
+    fksubjectid = models.ForeignKey('Subject', models.DO_NOTHING)  # Field name made lowercase.
+    fkstudentoib = models.ForeignKey(Student, models.DO_NOTHING)  # Field name made lowercase.
     grade = models.FloatField()
     class Meta:
         
@@ -175,8 +175,8 @@ class Subject(models.Model):
     subjectid = models.AutoField(db_column='subjectId', primary_key=True)  # Field name made lowercase.
     name = models.CharField(max_length=45)
     description = models.CharField(max_length=1000)
-    taughtbyfkprofessoroib = models.ForeignKey(Professor, models.DO_NOTHING, db_column='taughtByFKProfessorOIB', blank=True, null=True)  # Field name made lowercase.
-    taughtatfkschoolname = models.ForeignKey(School, models.DO_NOTHING, db_column='taughtAtFKSchoolName', blank=True, null=True)  # Field name made lowercase.
+    taughtbyfkprofessoroib = models.ForeignKey(Professor, models.DO_NOTHING, blank=True, null=True)  # Field name made lowercase.
+    taughtatfkschoolname = models.ForeignKey(School, models.DO_NOTHING, blank=True, null=True)  # Field name made lowercase.
 
     class Meta:
         
