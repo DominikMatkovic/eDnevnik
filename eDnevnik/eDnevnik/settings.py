@@ -91,7 +91,7 @@ DATABASES = {
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'ednevnikdb',
+        'NAME': 'eddb',
         'USER': 'root',
         'PASSWORD': '',
         'HOST': 'localhost',

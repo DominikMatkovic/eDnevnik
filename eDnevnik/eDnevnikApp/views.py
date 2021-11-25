@@ -52,6 +52,7 @@ def professorLogin(request):
 
 def studentPage(request,studentOIB):
     
+    
     studentByOib = Student.objects.get(pk=studentOIB)
     studentsSubject = Studentsubjecttable.objects.filter(fkstudentoib=studentOIB)
 
