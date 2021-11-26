@@ -1,7 +1,75 @@
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+{% bootstrap_messages %}
 
-<h1>Your page.</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Tvoji podatci i predmeti.</title>
+</head>
+<body>
+
+<div class="container-fluid p-3 my-3 ">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Tvoji podatci</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>OIB</td>
+                <td>{{professorsByOib.professoroib}}</td>
+            </tr>
+            <tr>
+                <td>First Name</td>
+                <td>{{professorsByOib.firstname}}</td>
+            </tr>
+            <tr>
+                <td>Last Name</td>
+                <td>{{professorsByOib.lastname}}</td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td>{{professorsByOib.email}}</td>
+            </tr>
+            <tr>
+                <td>Home Adress</td>
+                <td>{{professorsByOib.homeadress}}</td>
+            </tr>
+            <tr>
+                <td>Phone number</td>
+                <td>{{professorsByOib.phonenumber}}</td>
+            </tr>
+            <tr>
+                <td>Attends</td>
+                <td>{{professorsByOib.worksatfkid}}</td>
+            </tr>
+            <tr>
+                <td>Birth Date</td>
+                <td>{{professorsByOib.birthdate}}</td>
+            </tr>
+            
+        </tbody>
+        <thead>
+            <tr>
+                <th scope="col">Vaši predmeti</th>
+                <th scope="col"></th>
+            </tr>
+            {%for ss in teachersSubjects%}
+            <tr>
+                <td>{{ss.name}}</td>
+                <td><a href="./{{professorsByOib.professoroib}}/{{ss.name}}" class="btn btn-danger btn-sm " tabindex="-1" role="button" aria-disabled="true">Pregled studenata</a></td>
+                <td></td>
+            </tr>
+            {% endfor %}
+                       
+        </thead>
+    </table>
+</div>
 
 
-<a href="">View grades</a>
-<a href="">Add grades</a>
-<a href="">Update grades</a>
+</body>
+</html>

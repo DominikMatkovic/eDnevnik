@@ -6,20 +6,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Prijava kao student</title>
+  <title>Prijava kao profssor</title>
 </head>
 <body>
 
-
-
-
-<a href="{% url 'professorPage' %}">Log in</a>
-
-
+<div class="bg-image" style="background-size: cover; background-image: url('https://i.ibb.co/bdyT3bb/school.jpg'); height: 100vh">
+  <div class="position-absolute top-50 start-50 translate-middle">
+    <div class="container p-5 my-5 bg-dark border">
+      <h2 class="text-danger">Prijava kao profssor</h2>
+      <form action="" method="POST">
+        {% csrf_token %}
+        <div class="mb-3 mt-3">
+          <label for="OIB">OIB:</label>
+          <input type="text" placeholder="Napišite OIB ovdje." class="form-control" maxlength="11" id="OIB" name="OIB"/>
+        </div>
+        <br>
+        <div class="btn-group" style="width:100%">
+          <button type="submit" class="btn btn-danger">Prijava</button>
+          <a href="../" class="btn btn-danger" tabindex="-1" role="button" aria-disabled="true">Nazad</a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
 
 {% if alert == 1%}
 <script>
-  alert("Ovaj OIB nije od profesora ili ne postoji.");
+  alert("Ovaj OIB nije od učenika ili ne postoji.");
 </script>
 {% endif %}
 
