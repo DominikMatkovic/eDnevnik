@@ -12,6 +12,7 @@ urlpatterns = [
     path('professorPage/<professorOIB>/<subject>', views.professorSubjectView, name='professorSubjectView'),
     
 
+
     path('apiStudent', views.apiStudentList.as_view(), name='apiStudentList'),
     path('apiStudent/<pk>', views.apiStudentDetail.as_view(), name='apiStudentDetail'),
     path('apiProfessor', views.apiProfessorList.as_view(), name='apiProfessorList'),
@@ -22,4 +23,10 @@ urlpatterns = [
     path('apiSTT/<int:pk>', views.apiStudentsubjecttableDetail.as_view(), name='apiStudentsubjecttableDetail'),
     path('apiSubject', views.apiSubjectList.as_view(), name='apiSubjectList'),
     path('apiSubject/<int:pk>', views.apiSubjectDetail.as_view(), name='apiSubjectDetail'),
+
+    path('schools', views.schoolList, name='schoolList'),
+    path('schools/<int:pk>/', views.schoolDetail, name='schoolDetail'),
+
+
+
 ]

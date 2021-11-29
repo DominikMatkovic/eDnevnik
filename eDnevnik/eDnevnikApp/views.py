@@ -1,5 +1,5 @@
 from django.shortcuts import redirect,render
-
+import requests
 from .models import Student
 from .models import Studentsubjecttable
 from .models import Professor
@@ -25,11 +25,18 @@ from rest_framework.parsers import JSONParser
 def index(request): 
 
     #url = "http://10.30.10.55:5000/schools"
+    #"http://127.0.0.1:8000/apiStudent/12312312312?format=json"
     #response = urllib.request.urlopen(url)
     #data = json.loads(response.read())
     data = 1
-    context = {'data':data}
+    
+    #data = requests.delete('http://127.0.0.1:8000/apiSchool/2')
+    
+    payload  = {'schoolname':'65','adress':'69','website':'69'}
+    data = requests.post("http://127.0.0.1:8000/apiSchool", data=payload)
 
+
+    context = {'data':data}
     return render(request, 'eDnevnikApp/index.html',context)
 
 def studentLogin(request):
@@ -112,3 +119,43 @@ class apiSubjectList(generics.ListCreateAPIView):
 class apiSubjectDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Subject.objects.all()
     serializer_class = SubjectSerializer
+
+
+#add https://www.django-rest-framework.org/tutorial/2-requests-and-responses/ 
+# +++ https://www.geeksforgeeks.org/put-method-python-requests/
+
+@api_view(['GET', 'POST'])
+def schoolList(request):
+    if request.method == 'GET':
+        schools = School.objects.all()
+        serializer = SchoolSerializer(schools, many=True)
+        return Response(serializer.data)
+
+    elif request.method == 'POST':
+        serializer = SchoolSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+@api_view(['GET', 'PUT', 'DELETE'])
+def schoolDetail(request, pk):
+    try:
+        school = School.objects.get(pk=pk)
+    except School.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+
+    if request.method == 'GET':
+        serializer = SchoolSerializer(school)
+        return Response(serializer.data)
+
+    elif request.method == 'PUT':
+        serializer = SchoolSerializer(school, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    elif request.method == 'DELETE':
+        school.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
